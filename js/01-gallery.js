@@ -26,7 +26,23 @@ function createGalleryItemsMarkup(galleryItems) {
 
 }
 
+galleryContainer.addEventListener("click", onGalleryContainerClick);
 
+function onGalleryContainerClick(evt) {
+  evt.preventDefault();
+  const isGalleryImageEl = evt.target.classList.contains("gallery__image");
+
+  if (!isGalleryImageEl) {
+    return;
+  }
+  const urlBigImageEl = evt.target.getAttribute("data-source");
+  const instance = basicLightbox.create(`
+    <img  src="${urlBigImageEl}"  >
+`)
+
+instance.show()
+  
+} ;
 
 
 
