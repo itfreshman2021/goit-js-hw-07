@@ -16,10 +16,33 @@ function createGalleryItemsMarkup(galleryItems) {
       src="${preview}"
       data-source="${original}"
       alt="${description}"
+      title="${description}"
     />
   </a>
 `;
 })
 .join("");
 
+}
+galleryContainer.addEventListener("click", onGalleryContainerClick);
+
+function onGalleryContainerClick(evt) {
+    evt.preventDefault();
+    const isGalleryImageEl = evt.target.classList.contains("gallery__image");
+
+    if (!isGalleryImageEl) {
+        return;
+    }
+
+    const urlBigImageEl = evt.target.getAttribute("data-source");
+    let gallery = new SimpleLightbox('.gallery a');
+    gallery.on('show.simplelightbox', function () {
+       
+
+});
+    
+    gallery.on('error.simplelightbox', function (e) {
+    
+	console.log(e); 
+});   
 }
