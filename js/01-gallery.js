@@ -40,10 +40,17 @@ function onGalleryContainerClick(evt) {
     <img  src="${urlBigImageEl}"  >
 `)
 
-instance.show()
-  
-} ;
+  instance.show()
 
+  function onEscKeyPress(event) {
+    if (event.code === "Escape") {
+      instance.close();
+     window.removeEventListener("keydown", onEscKeyPress,); 
+    }
+}
+
+  window.addEventListener("keydown", onEscKeyPress);
+}
 
 
 
