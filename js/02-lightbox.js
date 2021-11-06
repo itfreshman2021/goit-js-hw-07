@@ -16,7 +16,6 @@ function createGalleryItemsMarkup(galleryItems) {
       src="${preview}"
       data-source="${original}"
       alt="${description}"
-      title="${description}"
     />
   </a>
 `;
@@ -35,7 +34,12 @@ function onGalleryContainerClick(evt) {
     }
 
     const urlBigImageEl = evt.target.getAttribute("data-source");
-    let gallery = new SimpleLightbox('.gallery a');
+  const gallery = new SimpleLightbox('.gallery a', {
+    widthRatio: 0.95,
+    heightRatio: 1.00,
+    captionsData: "alt",
+    captionDelay: 250,
+    });
     gallery.on('show.simplelightbox', function () {
        
 
